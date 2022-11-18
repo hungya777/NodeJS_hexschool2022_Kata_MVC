@@ -1,0 +1,7 @@
+const http = require("http"); //建立web server需要的套件
+const dotenv = require('dotenv'); //載入dotenv套件，用來管理環境變數
+dotenv.config({path:"./config.env"}); //根目錄上的.env的檔案路徑
+const app = require("../app"); //將app.js (專案進入點匯入)
+
+const server = http.createServer(app); //開啟一個伺服器，而app是程式進入點
+server.listen(process.env.PORT || 3005); //監聽 環境變數的PORT 或 3005
